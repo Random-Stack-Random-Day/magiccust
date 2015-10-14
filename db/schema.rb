@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009205627) do
+ActiveRecord::Schema.define(version: 20151013221706) do
 
   create_table "advertisements", force: :cascade do |t|
     t.string   "title"
@@ -76,6 +76,47 @@ ActiveRecord::Schema.define(version: 20151009205627) do
   end
 
   add_index "labels", ["labelable_type", "labelable_id"], name: "index_labels_on_labelable_type_and_labelable_id"
+
+  create_table "mtg_card_types", force: :cascade do |t|
+    t.integer  "mtg_card_id"
+    t.integer  "mtg_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mtg_cards", force: :cascade do |t|
+    t.string   "name"
+    t.string   "gatherer_url"
+    t.string   "multiverse_id"
+    t.string   "gatherer_image_url"
+    t.string   "mana_cost"
+    t.string   "converted_cost"
+    t.text     "oracle_text"
+    t.text     "flavor_text"
+    t.string   "mark"
+    t.string   "power"
+    t.string   "toughness"
+    t.string   "loyalty"
+    t.string   "rarity"
+    t.string   "transformed_id"
+    t.string   "colors"
+    t.string   "artist"
+    t.integer  "mtg_set_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mtg_sets", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mtg_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"

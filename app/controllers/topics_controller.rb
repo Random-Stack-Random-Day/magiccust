@@ -4,10 +4,12 @@ class TopicsController < ApplicationController
 
   def index
     @topics = Topic.visible_to(current_user)   
+    @cards = MtgCard.all
   end
 
   def show
     @topic = Topic.find(params[:id])
+    @cards = MtgCard.find(params[:id])
     
     unless @topic.public || current_user
        flash[:error] = "You must be signed in to view private topics."

@@ -1,1 +1,2 @@
-A functioning Reddit duplicate - Essential features, and modifications daily.
+A Social Media for MTG Cards - WIP.
+2015 Donavin Northrup

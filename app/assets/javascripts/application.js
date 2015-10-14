@@ -15,3 +15,25 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+$(document).ready(function(){
+var header = $('body');
+
+var backgrounds = new Array(
+    "image-url('MTGBG.jpg')"
+  , "image-url('MTGJace.jpg')"
+  , "image-url('MTGLil.jpg')"
+  , "image-url('MTGRal.jpg')"
+  , "image-url('MTGTam.jpg')"
+);
+
+var current = 0;
+
+function nextBackground() {
+    current++;
+    current = current % backgrounds.length;
+    header.css('background-image', backgrounds[current]);
+}
+setInterval(nextBackground, 1000);
+
+header.css('background-image', backgrounds[0]);
+});
